@@ -35,12 +35,30 @@ public class Entity : MonoBehaviour
         tmp.GetComponent<MeshRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
     }
 
+    private void Update()
+    {
+        switch (state)
+        {
+            case ENTITY_STATE.DRAG:
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0.0f;
+                transform.position = mousePos;
+            break;
+        }
+    }
+
     void OnMouseDown()
     {
         if (isDraggable)
         {
             pc.InteractWithEntity(this, PLAYER_STATE.DRAGGING);
+            state = ENTITY_STATE.DRAG;
         }
+    }
+
+    virtual public void Disengage()
+    {
+        state = ENTITY_STATE.IDLE;
     }
 
     virtual public void InteractWith(Entity other)

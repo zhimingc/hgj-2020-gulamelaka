@@ -31,13 +31,13 @@ public class Toolbox : Singleton<Toolbox>
             int nextScene = SceneManager.GetActiveScene().buildIndex - 1;
             if (nextScene < 0)
             {
-                nextScene = SceneManager.sceneCount;
+                nextScene = SceneManager.sceneCountInBuildSettings - 1;
             }
             SceneManager.LoadScene(nextScene);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCount + 1);
+            int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings);
             SceneManager.LoadScene(nextScene);
         }
         if (Input.GetKeyDown(KeyCode.R))

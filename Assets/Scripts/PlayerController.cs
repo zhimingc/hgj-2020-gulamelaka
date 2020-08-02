@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         DetectRaycast();
         StartSM();
         UpdateSM();
@@ -37,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void DetectRaycast()
     {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         hoveredEntity.Clear();
 
         // Check for overlaps with the mouse
@@ -65,8 +64,6 @@ public class PlayerController : MonoBehaviour
             case PLAYER_STATE.SELECT:
             break;
             case PLAYER_STATE.DRAGGING:
-                mousePos.z = 0.0f;
-                selectedEntity.transform.position = mousePos;
                 if (Input.GetMouseButtonUp(0))
                 {
                     DisengageEntity();

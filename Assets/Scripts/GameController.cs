@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public Text debugText;
+    public Text levelNameText;
     public string debugLog = "";
 
     private void Awake() {
@@ -18,7 +19,13 @@ public class GameController : MonoBehaviour
     {
         var debugCanvas = Instantiate(Resources.Load("Prefabs/DebugCanvas")) as GameObject;
         debugCanvas.GetComponent<Canvas>().worldCamera = Camera.main;
-        debugText = debugCanvas.GetComponentInChildren<Text>();
+        foreach (var textComp in debugCanvas.GetComponentsInChildren<Text>())
+        {
+            if (textComp.name == "debug_text") debugText = textComp;
+            if (textComp.name == "level_name_text") levelNameText = textComp;
+        }
+
+        levelNameText.text = SceneManager.GetActiveScene().name;
     }
 
     public void Print(string text)
