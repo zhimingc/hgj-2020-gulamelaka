@@ -33,16 +33,6 @@ public class PlayerController : MonoBehaviour
         DetectRaycast();
         StartSM();
         UpdateSM();
-
-        //DEBUG
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     void DetectRaycast()

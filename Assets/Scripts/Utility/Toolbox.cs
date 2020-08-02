@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
  
 public class Toolbox : Singleton<Toolbox>
 {
@@ -21,7 +22,34 @@ public class Toolbox : Singleton<Toolbox>
         // Put initialization code here.
         Add(typeof(GameController));
     }
- 
+
+    private void Update()
+    {
+        //DEBUG
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            int nextScene = SceneManager.GetActiveScene().buildIndex - 1;
+            if (nextScene < 0)
+            {
+                nextScene = SceneManager.sceneCount;
+            }
+            SceneManager.LoadScene(nextScene);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCount + 1);
+            SceneManager.LoadScene(nextScene);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     // The methods below allow us to add global components at runtime.
     public Component Add(Type componentID)
     {
