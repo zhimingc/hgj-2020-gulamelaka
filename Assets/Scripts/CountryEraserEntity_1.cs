@@ -47,15 +47,15 @@ public class CountryEraserEntity_1 : Entity
                     GetComponentInChildren<TextMeshPro>().text = "flipped country eraser";
                 });
                 seq.append(LeanTween.scaleY(gameObject, originalScale, 0.1f));
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 500.0f));
-                GetComponent<Rigidbody2D>().AddTorque(2.0f);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 2000.0f));
+                GetComponent<Rigidbody2D>().AddTorque(5.0f);
             break;
             case 1:
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 1750.0f));
-                GetComponent<Rigidbody2D>().AddTorque(150.0f);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 5000.0f));
+                GetComponent<Rigidbody2D>().AddTorque(100.0f);
             break;
             case -1:
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 300.0f));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 500.0f));
                 GetComponent<Rigidbody2D>().AddTorque(0.5f);
             break;
         }
