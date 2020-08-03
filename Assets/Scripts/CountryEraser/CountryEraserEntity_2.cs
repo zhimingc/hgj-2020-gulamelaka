@@ -8,8 +8,9 @@ public class CountryEraserEntity_2 : Entity
     public enum STATE { IDLE, AIMING, TOSSED }
     public STATE eraserState = STATE.IDLE;
     public GameObject aimArrow;
+    public CountryEraserController gameController;
     public List<float> powerLevels;
-    
+
     private float arrowOffset = 1.0f;
     private float arrowPowerOffset = 0.5f;
     private float originalScale;
@@ -34,11 +35,12 @@ public class CountryEraserEntity_2 : Entity
                 {
                     TossEraser();
                     aimArrow.SetActive(false);
-                    eraserState = STATE.IDLE;
-                    // eraserState = STATE.TOSSED;
+                    eraserState = STATE.TOSSED;
+                    gameController.ProgressState();
                 }
             break;
             case STATE.TOSSED:
+                // can't do anything until game controller says it's your turn
             break;
         }
     }
@@ -91,5 +93,10 @@ public class CountryEraserEntity_2 : Entity
         var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0.0f;
         return pos;
+    }
+
+    public void SetIdle()
+    {
+        eraserState = STATE.IDLE;
     }
 }
