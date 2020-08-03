@@ -55,7 +55,7 @@ public class CountryEraserEntity_1 : Entity
                 GetComponent<Rigidbody2D>().AddTorque(100.0f);
             break;
             case -1:
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 500.0f));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 750.0f));
                 GetComponent<Rigidbody2D>().AddTorque(0.5f);
             break;
         }
@@ -78,9 +78,9 @@ public class CountryEraserEntity_1 : Entity
             currentPick = 0.0f;
         }
 
-        var barPos = pickBar.GetComponent<RectTransform>().localPosition;
-        barPos.y = -125.0f + currentPick * 250.0f;
-        pickBar.GetComponent<RectTransform>().localPosition = barPos;
+        var barPos = pickBar.GetComponent<Transform>().localPosition;
+        barPos.y = -3.0f + currentPick * 6.0f;
+        pickBar.GetComponent<Transform>().localPosition = barPos;
     }
 
     int GetPickAmount()
