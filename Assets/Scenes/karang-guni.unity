@@ -124,6 +124,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &248867187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248867189}
+  - component: {fileID: 248867188}
+  m_Layer: 0
+  m_Name: KarangGuniController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &248867188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248867187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a04c9986d00d44d9561b70accfdb44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &248867189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248867187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &324047268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,12 +202,12 @@ PrefabInstance:
     - target: {fileID: 176879542447281335, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.36
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 176879542447281335, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.74
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 176879542447281335, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
@@ -490,7 +533,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 30dc8636a67e094459cb72853ee8fae2, type: 3}
   m_Color: {r: 0.5754717, g: 0.5564703, b: 0.5564703, a: 1}
   m_FlipX: 0
@@ -638,7 +681,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 30dc8636a67e094459cb72853ee8fae2, type: 3}
   m_Color: {r: 0.5754717, g: 0.5564703, b: 0.5564703, a: 1}
   m_FlipX: 0
@@ -948,17 +991,17 @@ PrefabInstance:
     - target: {fileID: 176879542447281334, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 176879542447281335, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.34
+      value: -7.16
       objectReference: {fileID: 0}
     - target: {fileID: 176879542447281335, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.24
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 176879542447281335, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
         type: 3}
@@ -1034,6 +1077,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 176879543149051331, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 176879543149051332, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 176879543149051332, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 176879543149051332, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 176879543149051333, guid: b893c3b8a7fcf8e48b1b9fb0f8d38d97, type: 3}

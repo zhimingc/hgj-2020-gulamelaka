@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
     public void DisengageEntity()
     {
+        selectedEntity.Disengage();
+
         foreach (var hovered in hoveredEntity)
         {
             if (selectedEntity == null) break;

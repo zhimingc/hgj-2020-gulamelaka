@@ -8,6 +8,9 @@ public class Toolbox : Singleton<Toolbox>
     // Used to track any global components added at runtime.
     private Dictionary<Type, Component> m_Components = new Dictionary<Type, Component>();
 
+    // Gettors
+    public SFXManager Sfx { get {return (SFXManager) m_Components[typeof(SFXManager)]; }}
+
     // Prevent constructor use.
     protected Toolbox() { }
  
@@ -21,6 +24,9 @@ public class Toolbox : Singleton<Toolbox>
     {
         // Put initialization code here.
         Add(typeof(GameController));
+        Add(typeof(SFXManager));
+
+        Get<SFXManager>().Init();
     }
 
     private void Update()
