@@ -23,10 +23,10 @@ public class Toolbox : Singleton<Toolbox>
     void Wake()
     {
         // Put initialization code here.
-        Add(typeof(GameController));
         Add(typeof(SFXManager));
+        Add(typeof(GameController));
 
-        Get<SFXManager>().Init();
+        //Get<SFXManager>().Init();
     }
 
     private void Update()

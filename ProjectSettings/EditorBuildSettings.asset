@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/karang-guni.unity
+    path: Assets/Scenes/karang-guni-1.unity
     guid: 5b257c6a48262394f90b69f6d74aaac9
   - enabled: 1
     path: Assets/Scenes/country-eraser-1.unity

@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
         }
 
         levelNameText.text = SceneManager.GetActiveScene().name;
+        Toolbox.Instance.Sfx.StopAll();
     }
 
     public void Print(string text)

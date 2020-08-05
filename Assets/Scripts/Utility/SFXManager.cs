@@ -31,7 +31,7 @@ public class SFXManager : MonoBehaviour
 	private List<AudioSource> audioSources;
 	private float trimThreshold = 0.25f;
 
-	public void Init()
+	public void Awake()
 	{
 		isMute = false;
 		audioSources = new List<AudioSource>();
@@ -137,6 +137,16 @@ public class SFXManager : MonoBehaviour
 				source.Stop();
 				return;
 			}
+		}
+	}
+
+	public void StopAll()
+	{
+		// Note: Might cause bug for multiple sources playing the same clip
+		foreach (AudioSource source in audioSources)
+		{
+			source.Stop();
+			return;
 		}
 	}
 

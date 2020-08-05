@@ -15,4 +15,6 @@ MonoBehaviour:
   sfxData:
   - name: karang_guni_0
     clip: {fileID: 8300000, guid: 4d4e26a7db5844e47b8e885ce1a9f696, type: 3}
+  - name: karang_guni_1
+    clip: {fileID: 8300000, guid: 851b769d084a35c458272e87e225ca18, type: 3}
   sfxBatchData: []
