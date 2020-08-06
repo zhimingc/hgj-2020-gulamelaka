@@ -53,9 +53,9 @@ public class GameController : MonoBehaviour
     public void EndLevel()
     {
         var seq = LeanTween.sequence();
-        seq.append(2.0f);
+        seq.append(2.0f);   // time befoe fading starts
         seq.append(LeanTween.alpha(fadeScreen.GetComponent<RectTransform>(), 1.0f, 2.5f));
-        seq.append(1.0f);
+        seq.append(1.0f);   // time before scene is loaded
         seq.append(()=> {
             var nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
             SceneManager.LoadScene(nextScene);
