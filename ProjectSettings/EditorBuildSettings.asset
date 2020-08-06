@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/karang-guni-1.unity
     guid: 5b257c6a48262394f90b69f6d74aaac9
   - enabled: 1
+    path: Assets/Scenes/karang-guni-2.unity
+    guid: 29eed0be5e7713b458dd7aaeb0ba5acd
+  - enabled: 1
     path: Assets/Scenes/country-eraser-1.unity
     guid: e3a8ea0009a1d5042a298665fa8fb323
   - enabled: 1

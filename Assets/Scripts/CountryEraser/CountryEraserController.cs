@@ -57,6 +57,8 @@ public class CountryEraserController : MonoBehaviour
         {
             endText.text = "you lost your eraser";
         }
+
+        Toolbox.Instance.Gc.EndLevel();
     }
 
 }

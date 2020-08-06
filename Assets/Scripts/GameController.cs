@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     public Text levelNameText;
     public string debugLog = "";
 
+    private Image fadeScreen;
+
     private void Awake() {
         Init();
         SceneManager.sceneLoaded += LevelLoaded;
@@ -26,7 +28,9 @@ public class GameController : MonoBehaviour
         }
 
         levelNameText.text = SceneManager.GetActiveScene().name;
+        fadeScreen = debugCanvas.GetComponentInChildren<Image>();
         Toolbox.Instance.Sfx.StopAll();
+        FadeIn();
     }
 
     public void Print(string text)
@@ -38,5 +42,22 @@ public class GameController : MonoBehaviour
     void LevelLoaded(Scene scene, LoadSceneMode mode) 
     {
         Init();
+    }
+
+    void FadeIn()
+    {
+        LeanTween.alpha(fadeScreen.GetComponent<RectTransform>(), 0.0f, 1.0f);
+    }
+
+    public void EndLevel()
+    {
+        var seq = LeanTween.sequence();
+        seq.append(2.0f);
+        seq.append(LeanTween.alpha(fadeScreen.GetComponent<RectTransform>(), 1.0f, 2.5f));
+        seq.append(1.0f);
+        seq.append(()=> {
+            var nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+            SceneManager.LoadScene(nextScene);
+        });
     }
 }

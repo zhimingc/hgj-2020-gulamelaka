@@ -62,6 +62,7 @@ public class CountryEraserEntity_1 : Entity
 
         sequence = SEQUENCE.FLIPPED;
         powerBar.SetActive(false);
+        Toolbox.Instance.Gc.EndLevel();
     }
 
     void UpdatePickBar()

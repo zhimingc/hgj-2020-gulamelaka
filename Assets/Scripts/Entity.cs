@@ -24,6 +24,7 @@ public class Entity : MonoBehaviour
     public bool isDraggable = true;
     private PlayerController pc;
     private TextMeshPro tmp;
+    private Vector3 originPos;
 
     private void Awake() {
         pc = FindObjectOfType<PlayerController>();
@@ -53,7 +54,13 @@ public class Entity : MonoBehaviour
         {
             pc.InteractWithEntity(this, PLAYER_STATE.DRAGGING);
             state = ENTITY_STATE.DRAG;
+            originPos = transform.position;
         }
+    }
+
+    public void ReturnToOrigin()
+    {
+        LeanTween.move(gameObject, originPos, 0.5f);
     }
 
     virtual public void Disengage()
@@ -61,17 +68,23 @@ public class Entity : MonoBehaviour
         state = ENTITY_STATE.IDLE;
     }
 
+    // called by the entity the player drops something on; i.e. karang guni man when a bag of clothes is dropped onto it
     virtual public void InteractWith(Entity other)
     {
+        other.InteractOn(this);
+
         switch (type)
         {
             case INTERACT_TYPE.NOTHING:
-                Toolbox.Instance.Get<GameController>().Print(this.name + " interacting with " + other.name);
+                //Toolbox.Instance.Get<GameController>().Print(this.name + " interacting with " + other.name);
             break;
             case INTERACT_TYPE.DESTROY:
-                Toolbox.Instance.Get<GameController>().Print("Disposing of " + other.name + " with " + this.name);
+                //Toolbox.Instance.Get<GameController>().Print("Disposing of " + other.name + " with " + this.name);
                 Destroy(other.gameObject);
             break;
         }
     }
+
+    // called by the entity the player is controlling; i.e. bad of clothes when dropped onto the kg man
+    virtual public void InteractOn(Entity other) {}
 }
