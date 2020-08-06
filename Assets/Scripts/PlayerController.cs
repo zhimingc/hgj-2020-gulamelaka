@@ -114,4 +114,9 @@ public class PlayerController : MonoBehaviour
         SetState(PLAYER_STATE.IDLE);
         selectedEntity = null;
     }
+
+    public void StartButton()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
