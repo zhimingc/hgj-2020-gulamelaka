@@ -8,10 +8,13 @@ public class Button : MonoBehaviour
     private PlayerController pc;
     private TextMeshPro tmp;
 
+    private Vector3 originalScale;
+
     private void Awake()
     {
         pc = FindObjectOfType<PlayerController>();
         tmp = GetComponentInChildren<TextMeshPro>();
+        originalScale = transform.localScale;
     }
 
     // Start is called before the first frame update
@@ -30,16 +33,24 @@ public class Button : MonoBehaviour
     void OnMouseEnter()
     {
         Debug.Log("I am over something");
+        transform.localScale = originalScale * 1.1f;
+        this.GetComponentInChildren<TextMeshPro>().enabled = true;
     }
 
-    void OnMouseUpAsButton()
+    void OnMouseDown()
+    {
+        transform.localScale = originalScale * 0.9f;
+    }
+
+    protected void OnMouseUpAsButton()
     {
         Toolbox.Instance.Get<GameController>().Print(this.name + " is pressed");
     }
 
-
     void OnMouseExit()
-    {
+    {;
         Debug.Log("I have left something");
+        transform.localScale = originalScale;
+        this.GetComponentInChildren<TextMeshPro>().enabled = false;
     }
 }

@@ -11,6 +11,7 @@ public class Toolbox : Singleton<Toolbox>
     // Gettors
     public SFXManager Sfx { get {return (SFXManager) m_Components[typeof(SFXManager)]; }}
     public GameController Gc { get {return (GameController) m_Components[typeof(GameController)]; }}
+    public DrinksController Dc { get {return (DrinksController) m_Components[typeof(DrinksController)]; }}
 
     // Prevent constructor use.
     protected Toolbox() { }
@@ -26,6 +27,7 @@ public class Toolbox : Singleton<Toolbox>
         // Put initialization code here.
         Add(typeof(SFXManager));
         Add(typeof(GameController));
+        Add(typeof(DrinksController));
 
         //Get<SFXManager>().Init();
     }
