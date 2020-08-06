@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
         levelNameText.text = SceneManager.GetActiveScene().name;
         fadeScreen = debugCanvas.GetComponentInChildren<Image>();
         Toolbox.Instance.Sfx.StopAll();
+        LeanTween.cancelAll();
         FadeIn();
     }
 
