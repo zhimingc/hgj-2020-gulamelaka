@@ -11,6 +11,7 @@ public class KarangGuniController : MonoBehaviour
     public GameObject kgParent;
     public KarangGuniEntity kgObj;
     public float startDelay;
+    public Sprite sadKG;
 
     private Animator kgAnim;
 
@@ -42,26 +43,30 @@ public class KarangGuniController : MonoBehaviour
         {
             case STATE.END_BIN:
             case STATE.END_CAROUSELL:
-                kgObj.GetComponentInChildren<TextMeshPro>().enabled = true;
+                kgObj.GetComponent<SpriteRenderer>().sprite = sadKG;
+                Toolbox.Instance.Gc.EndLevel();
             break;
             case STATE.END_KG:
                 kgAnim.enabled = false;
                 kgObj.SetAnimationTrigger("idle");
+                Toolbox.Instance.Gc.EndLevel();
             break;
             case STATE.END_NOTHING:
-                //if (state == STATE.END_BIN || state == STATE.END_CAROUSELL) break;
-                LeanTween.delayedCall(gameObject, 1.0f, ()=> {
+                var seq = LeanTween.sequence();
+                seq.append(0.5f);
+                seq.append(()=> {
                     kgAnim.SetTrigger("walkBack");
                     kgObj.SetAnimationTrigger("idle");
-                    kgObj.GetComponentInChildren<TextMeshPro>().enabled = true;
-                });
+                    kgObj.GetComponent<SpriteRenderer>().sprite = sadKG;}
+                );
+                seq.append(1.0f);
+                seq.append(()=> {Toolbox.Instance.Gc.EndLevel();});
             break;
         }
 
         state = newState;
         if ((int)state >= 2)
         {
-            Toolbox.Instance.Gc.EndLevel();
         }
     }
 }

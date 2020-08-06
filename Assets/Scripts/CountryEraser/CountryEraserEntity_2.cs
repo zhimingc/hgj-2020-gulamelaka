@@ -10,10 +10,10 @@ public class CountryEraserEntity_2 : Entity
     public GameObject aimArrow;
     public CountryEraserController gameController;
     public List<float> powerLevels;
+    public float originalScale;
 
     private float arrowOffset = 1.0f;
     private float arrowPowerOffset = 0.5f;
-    private float originalScale;
     private float[] powerLevelDist = {0.0f, 1.0f, 2.0f};
     private Vector3 shootVec;
     private int powerLevel;
@@ -36,11 +36,14 @@ public class CountryEraserEntity_2 : Entity
                     TossEraser();
                     aimArrow.SetActive(false);
                     eraserState = STATE.TOSSED;
-                    gameController.ProgressState();
                 }
             break;
             case STATE.TOSSED:
                 // can't do anything until game controller says it's your turn
+                if (gameController.state == CountryEraserController.GAME_STATE.PLAYER_TURN && GetComponent<Rigidbody2D>().velocity.magnitude < 0.1f)
+                {
+                    gameController.ProgressState();
+                }
             break;
         }
     }

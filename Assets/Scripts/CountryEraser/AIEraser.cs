@@ -9,6 +9,8 @@ public class AIEraser : MonoBehaviour
     public GameObject player;
     public CountryEraserController gameController;
 
+    public bool checkEndTurn;
+
     public void ShootAtPlayer()
     {
         Vector2 aimVec = (player.transform.position - transform.position).normalized;
@@ -17,12 +19,23 @@ public class AIEraser : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(aimVec * power);
 
         gameController.SetLastTurn(false);
-        LeanTween.delayedCall(0.25f, ()=> {gameController.ProgressState();});
+        checkEndTurn = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        if (other.name == "Eraser")
+        if (checkEndTurn && GetComponent<Rigidbody2D>().velocity.magnitude < 0.1f)
+        {
+            checkEndTurn = false;
+            gameController.ProgressState();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.name == "Eraser" && 
+            other.GetComponent<Rigidbody2D>().velocity.magnitude < 0.5f && 
+            GetComponent<Rigidbody2D>().velocity.magnitude < 0.5f)
         {
             gameController.EndGame();
         }
