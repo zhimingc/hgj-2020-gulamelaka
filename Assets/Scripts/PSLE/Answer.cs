@@ -8,16 +8,16 @@ public class Answer : Entity
 
     override public void Start()
     {
-        
+
     }
     override public void InteractOn(Entity other)
     {
-        Debug.Log("Interacting with " + other.name);
         if (other.name.StartsWith("Answer Box"))
         {
             this.transform.position = other.transform.position;
             AnswerBox ab = other.GetComponent<AnswerBox>();
             ab.setFinalAnswer(this.name, this.gameObject);
+            Toolbox.Instance.Sfx.PlaySound("scribble_0", 0.25f, 0.9f, 1.1f);
         }
     }
 }

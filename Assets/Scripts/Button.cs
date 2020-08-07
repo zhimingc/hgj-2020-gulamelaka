@@ -44,7 +44,7 @@ public class Button : MonoBehaviour
 
     protected void OnMouseUpAsButton()
     {
-        Toolbox.Instance.Get<GameController>().Print(this.name + " is pressed");
+        //Toolbox.Instance.Get<GameController>().Print(this.name + " is pressed");
     }
 
     virtual public void OnMouseExit()
