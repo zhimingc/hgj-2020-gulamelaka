@@ -19,7 +19,7 @@ public class KarangGuniController : MonoBehaviour
     void Start()
     {
         kgAnim = kgParent.GetComponent<Animator>();
-        Toolbox.Instance.Sfx.PlaySound("karang_guni_1", 0.25f);
+        Toolbox.Instance.Sfx.PlaySound("karang_guni_1", 0.15f);
     }
 
     // Update is called once per frame

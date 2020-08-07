@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene(1);
+        Toolbox.Instance.Gc.EndLevel();
     }
 
     public void OpenCreditsButton()

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/country-eraser-2.unity
     guid: 403ab786e8aeebf4ba3c053a70cbd500
+  - enabled: 1
+    path: Assets/Scenes/load-screen.unity
+    guid: 171906066736d0448ad621a5b7fda3a3
   m_configObjects: {}

@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     public string debugLog = "";
 
     private Image fadeScreen;
+    public int nextScene;
+
+    public string[] sceneNames = { "karang guni #1", "karang guni #2", "country eraser #1", "country eraser #2"};
 
     private void Awake() {
         Init();
@@ -27,15 +30,33 @@ public class GameController : MonoBehaviour
             if (textComp.name == "level_name_text") levelNameText = textComp;
         }
 
-        levelNameText.text = SceneManager.GetActiveScene().name;
         fadeScreen = debugCanvas.GetComponentInChildren<Image>();
         Toolbox.Instance.Sfx.StopAll();
         LeanTween.cancelAll();
-        FadeIn();
 
-        if (SceneManager.GetActiveScene().name == "main-menu")
+        if (SceneManager.GetActiveScene().name == "load-screen")
         {
-            debugCanvas.SetActive(false);
+            levelNameText.text = sceneNames[nextScene-1];
+            FadeInLevelName();
+        }
+        else
+        {
+            FadeIn();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SceneManager.GetActiveScene().name != "main-menu")
+            {
+                SceneManager.LoadScene("main-menu");
+            }
+            else
+            {
+                Application.Quit();
+            }
         }
     }
 
@@ -52,19 +73,32 @@ public class GameController : MonoBehaviour
 
     void FadeIn()
     {
-        LeanTween.alpha(fadeScreen.GetComponent<RectTransform>(), 0.0f, 1.0f);
+        var seq = LeanTween.sequence();
+        seq.append(LeanTween.alpha(fadeScreen.GetComponent<RectTransform>(), 0.0f, 1.0f));
+    }
+
+    void FadeInLevelName()
+    {
+        var seq = LeanTween.sequence();
+        seq.append(LeanTween.alphaText(levelNameText.GetComponent<RectTransform>(), 1.0f, 1.5f));
+        seq.append(1.5f);
+        seq.append(LeanTween.alphaText(levelNameText.GetComponent<RectTransform>(), 0.0f, 1.5f));
+        seq.append(0.5f);
+        seq.append(()=> {
+            SceneManager.LoadScene(nextScene);
+        });
     }
 
     public void EndLevel()
     {
-        var nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
-        EndLevel(nextScene);
+        nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        EndLevel("load-screen");
     }
 
-    public void EndLevel(int nextLevel)
+    public void EndLevel(string nextLevel)
     {
         var seq = LeanTween.sequence();
-        seq.append(2.0f);   // time befoe fading starts
+        seq.append(1.0f);   // time befoe fading starts
         seq.append(LeanTween.alpha(fadeScreen.GetComponent<RectTransform>(), 1.0f, 2.5f));
         seq.append(1.0f);   // time before scene is loaded
         seq.append(()=> {
