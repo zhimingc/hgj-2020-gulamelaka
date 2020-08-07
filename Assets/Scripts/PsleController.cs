@@ -9,10 +9,16 @@ public class PsleController : MonoBehaviour
     public int marks = 0;
 
     private void Awake() {
+        SceneManager.sceneLoaded += LevelLoaded;
+        LevelLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+    }
+    
+    void LevelLoaded(Scene scene, LoadSceneMode mode) 
+    {
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.StartsWith("psle")) Init();
     }
-    
+
     void Init()
     {
         Toolbox.Instance.Sfx.PlayLoop("classroom_0", 0.1f);

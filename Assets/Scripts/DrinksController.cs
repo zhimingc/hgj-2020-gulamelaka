@@ -23,6 +23,12 @@ public class DrinksController : MonoBehaviour
     public GameObject uncleEyes;
     
     private void Awake() {
+        SceneManager.sceneLoaded += LevelLoaded;
+        LevelLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+    }
+
+    void LevelLoaded(Scene scene, LoadSceneMode mode) 
+    {
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.StartsWith("drink-stall"))
         {
