@@ -13,7 +13,17 @@ public class GameController : MonoBehaviour
     private Image fadeScreen;
     public int nextScene;
 
-    public string[] sceneNames = { "karang guni #1", "karang guni #2", "country eraser #1", "country eraser #2", "psle"};
+    public string[] sceneNames = { 
+        "karang guni #1", 
+        "country eraser #1",         
+        "drink stall #1",
+        "karang guni #2",
+        "drink stall #2",
+        "country eraser #2", 
+        "drink stall #3",
+        "psle"
+    };
+
     public int numScenes;
 
     private void Awake() {
@@ -35,7 +45,8 @@ public class GameController : MonoBehaviour
         fadeScreen = debugCanvas.GetComponentInChildren<Image>();
         Toolbox.Instance.Sfx.StopAll();
         LeanTween.cancelAll();
-
+        debugLog = "";
+        
         if (SceneManager.GetActiveScene().name == "load-screen")
         {
             levelNameText.text = sceneNames[nextScene-1];
@@ -102,7 +113,7 @@ public class GameController : MonoBehaviour
         nextScene = (SceneManager.GetActiveScene().buildIndex + 1);
         if (nextScene >= numScenes + 1) 
         {
-            EndLevel("main-menu");
+            EndLevel("metric");
             nextScene = 0;
         }
         else 

@@ -51,8 +51,9 @@ public class Toolbox : Singleton<Toolbox>
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings);
-            SceneManager.LoadScene(nextScene);
+            //int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings);
+            //SceneManager.LoadScene(nextScene);
+            Gc.EndLevel();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {

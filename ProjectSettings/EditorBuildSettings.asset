@@ -12,24 +12,33 @@ EditorBuildSettings:
     path: Assets/Scenes/karang-guni-1.unity
     guid: 5b257c6a48262394f90b69f6d74aaac9
   - enabled: 1
+    path: Assets/Scenes/country-eraser-1.unity
+    guid: e3a8ea0009a1d5042a298665fa8fb323
+  - enabled: 1
+    path: Assets/Scenes/drink-stall.unity
+    guid: 44375f1a65802467198542d9096cb6da
+  - enabled: 1
     path: Assets/Scenes/karang-guni-2.unity
     guid: 29eed0be5e7713b458dd7aaeb0ba5acd
   - enabled: 1
-    path: Assets/Scenes/country-eraser-1.unity
-    guid: e3a8ea0009a1d5042a298665fa8fb323
+    path: Assets/Scenes/drink-stall-1.unity
+    guid: 3cce4f2ee41a74ac8b54e377dddfb4e2
   - enabled: 1
     path: Assets/Scenes/country-eraser-2.unity
     guid: 403ab786e8aeebf4ba3c053a70cbd500
   - enabled: 1
+    path: Assets/Scenes/drink-stall-2.unity
+    guid: 2f28c770ce0b541b1adbdcf12f59eda5
+  - enabled: 1
     path: Assets/Scenes/psle.unity
     guid: 66651cf92157e451f8428263d9796c66
-  - enabled: 1
-    path: Assets/Scenes/drink-stall.unity
-    guid: 44375f1a65802467198542d9096cb6da
   - enabled: 1
     path: Assets/Scenes/load-screen.unity
     guid: 171906066736d0448ad621a5b7fda3a3
   - enabled: 1
     path: Assets/Scenes/start-copy.unity
     guid: 893a7c79b287a5e4b84384577a9a8993
+  - enabled: 1
+    path: Assets/Scenes/metric.unity
+    guid: 9bd2f788e7d9a4de88fa11e1ac7cd384
   m_configObjects: {}
