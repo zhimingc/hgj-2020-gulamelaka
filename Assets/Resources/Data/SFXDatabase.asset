@@ -25,4 +25,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0cde4b1827ba743caa25b6af3d2c684a, type: 3}
   - name: hdb_walk_0
     clip: {fileID: 8300000, guid: 0e39ea45e867e4d83b420bd00baa14f5, type: 3}
+  - name: drumroll_0
+    clip: {fileID: 8300000, guid: 662150e0e50ae42dabdc13299d386318, type: 3}
+  - name: lousy_humming_0
+    clip: {fileID: 8300000, guid: 1556e6346a9a14bfeb7582e4f80a131a, type: 3}
   sfxBatchData: []
