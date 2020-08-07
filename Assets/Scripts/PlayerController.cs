@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public List<Entity> hoveredEntity;
     public bool isNewState;
 
+    // menu buttons; sorry this shouldn't be here, i anyhow one :'(
+    public GameObject creditsButton, creditsDisplay;
+
     private Vector3 mousePos;
 
     void Awake()
@@ -113,5 +116,22 @@ public class PlayerController : MonoBehaviour
         }
         SetState(PLAYER_STATE.IDLE);
         selectedEntity = null;
+    }
+
+    public void StartButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void OpenCreditsButton()
+    {
+        creditsDisplay.SetActive(true);
+        creditsButton.SetActive(false);
+    }
+
+    public void CloseCreditsButton()
+    {
+        creditsDisplay.SetActive(false);
+        creditsButton.SetActive(true);
     }
 }
