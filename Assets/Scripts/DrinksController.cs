@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DrinksController : MonoBehaviour
 {
+    public float score;
     public int coffee;
     public int tea;
     public int sugar;
@@ -44,7 +45,7 @@ public class DrinksController : MonoBehaviour
     }
     void Init()
     {
-        
+        score = 0.0f;
         stirrer = GameObject.Find("Stirrer");
         preparedHotCup = GameObject.Find("Prepared Hot Cup");
         preparedHotCup.SetActive(false);
@@ -87,6 +88,10 @@ public class DrinksController : MonoBehaviour
 
         Toolbox.Instance.Get<GameController>().Print("Stirring: " + drinkText);
         preparedDrinkText = drinkText;
+        if(preparedDrinkText.StartsWith(wantedDrinkText))
+        {
+            score = score + 0.75f;
+        }
         Toolbox.Instance.Get<GameController>().Print("Served Hot or Iced?");
         refreshDrink();
 
@@ -139,13 +144,20 @@ public class DrinksController : MonoBehaviour
             uncleNegative();
         }
         preparedDrinkText = "";
+        Toolbox.Instance.finalScore = Toolbox.Instance.finalScore + score;
 
         LeanTween.delayedCall(3.0f, ()=>{Toolbox.Instance.Gc.EndLevel();} );
+
     }
 
     public void unclePositive()
     {
         Toolbox.Instance.Get<GameController>().Print("Uncle is content.");
+
+        if(string.Equals(preparedDrinkText, wantedDrinkText))
+        {
+            score = score + 0.25f;
+        }
     }
 
     public void uncleNegative()

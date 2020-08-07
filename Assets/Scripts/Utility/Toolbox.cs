@@ -14,6 +14,8 @@ public class Toolbox : Singleton<Toolbox>
     public DrinksController Dc { get {return (DrinksController) m_Components[typeof(DrinksController)]; }}
     public PsleController Pc { get {return (PsleController) m_Components[typeof(PsleController)]; }}
 
+    public float finalScore;
+
     // Prevent constructor use.
     protected Toolbox() { }
  
@@ -25,6 +27,7 @@ public class Toolbox : Singleton<Toolbox>
 
     void Wake()
     {
+        finalScore = 0.0f;
         // Put initialization code here.
         Add(typeof(SFXManager));
         Add(typeof(GameController));

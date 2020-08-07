@@ -49,6 +49,7 @@ public class KarangGuniController : MonoBehaviour
             case STATE.END_KG:
                 kgAnim.enabled = false;
                 kgObj.SetAnimationTrigger("idle");
+                Toolbox.Instance.finalScore = Toolbox.Instance.finalScore + 1.0f;
                 Toolbox.Instance.Gc.EndLevel();
             break;
             case STATE.END_NOTHING:

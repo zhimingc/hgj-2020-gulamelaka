@@ -72,6 +72,7 @@ public class PsleController : MonoBehaviour
             Toolbox.Instance.Sfx.PlaySound("scribble_0", 0.25f, 0.9f, 1.1f);
         }
         
+        Toolbox.Instance.finalScore = Toolbox.Instance.finalScore + ((float)marks / (float)childCount);
         Debug.Log("Marks: " + marks + "/" + childCount);
     }
 }

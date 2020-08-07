@@ -49,6 +49,7 @@ public class CountryEraserEntity_1 : Entity
                 seq.append(LeanTween.scaleY(gameObject, originalScale, 0.1f));
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 2000.0f));
                 GetComponent<Rigidbody2D>().AddTorque(5.0f);
+                Toolbox.Instance.finalScore = Toolbox.Instance.finalScore + 1.0f;
             break;
             case 1:
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 5000.0f));

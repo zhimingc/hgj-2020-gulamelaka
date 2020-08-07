@@ -54,7 +54,8 @@ public class CountryEraserController : MonoBehaviour
         {
             endText.text = "you won their eraser!";
             playerEraser.GetComponent<SpriteRenderer>().sortingOrder = 2;
-            aiEraser.GetComponent<SpriteRenderer>().sortingOrder = 1;            
+            aiEraser.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            Toolbox.Instance.finalScore = Toolbox.Instance.finalScore + 1.0f;    
         }
         else
         {
@@ -74,7 +75,8 @@ public class CountryEraserController : MonoBehaviour
         if (!isPlayer)
         {
             endText.text = "you won their eraser!";    
-            LeanTween.scale(aiEraser.gameObject, Vector3.zero, 1.0f);   
+            LeanTween.scale(aiEraser.gameObject, Vector3.zero, 1.0f);
+            Toolbox.Instance.finalScore = Toolbox.Instance.finalScore + 1.0f;
         }
         else
         {
