@@ -31,12 +31,12 @@ public class Entity : MonoBehaviour
         tmp = GetComponentInChildren<TextMeshPro>(); 
     }
 
-    private void Start()
+    virtual public void Start()
     {
         tmp.GetComponent<MeshRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
     }
 
-    private void Update()
+    virtual public void Update()
     {
         switch (state)
         {
@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    virtual public void OnMouseDown()
     {
         if (isDraggable)
         {

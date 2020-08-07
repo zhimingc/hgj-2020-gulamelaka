@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Button : MonoBehaviour
+public class Submit : Button
 {
     private PlayerController pc;
     private TextMeshPro tmp;
 
     private Vector3 originalScale;
-    public bool isTextReamin;
+
+    private PsleController psle;
 
     private void Awake()
     {
@@ -21,7 +22,6 @@ public class Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tmp.GetComponent<MeshRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
     }
 
     // Update is called once per frame
@@ -31,10 +31,9 @@ public class Button : MonoBehaviour
         // mousePos.z = 0.0f;
     }
 
-    virtual public void OnMouseEnter()
+    override public void OnMouseEnter()
     {
         transform.localScale = originalScale * 1.1f;
-        this.GetComponentInChildren<TextMeshPro>().enabled = true;
     }
 
     void OnMouseDown()
@@ -44,12 +43,14 @@ public class Button : MonoBehaviour
 
     protected void OnMouseUpAsButton()
     {
-        Toolbox.Instance.Get<GameController>().Print(this.name + " is pressed");
+        Debug.Log("on mouse up");
+        Toolbox.Instance.Get<PsleController>().Mark();
+        
+        base.OnMouseUpAsButton();
     }
 
-    virtual public void OnMouseExit()
+    override public void OnMouseExit()
     {
         transform.localScale = originalScale;
-        if (!isTextReamin) this.GetComponentInChildren<TextMeshPro>().enabled = false;
     }
 }

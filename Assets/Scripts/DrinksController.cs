@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DrinksController : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class DrinksController : MonoBehaviour
     public GameObject uncleEyes;
     
     private void Awake() {
-        Init();
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName.StartsWith("drink-stall")) Init();
     }
 
     private void refreshDrink()

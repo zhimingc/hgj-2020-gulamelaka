@@ -12,6 +12,7 @@ public class Toolbox : Singleton<Toolbox>
     public SFXManager Sfx { get {return (SFXManager) m_Components[typeof(SFXManager)]; }}
     public GameController Gc { get {return (GameController) m_Components[typeof(GameController)]; }}
     public DrinksController Dc { get {return (DrinksController) m_Components[typeof(DrinksController)]; }}
+    public PsleController Pc { get {return (PsleController) m_Components[typeof(PsleController)]; }}
 
     // Prevent constructor use.
     protected Toolbox() { }
@@ -28,6 +29,7 @@ public class Toolbox : Singleton<Toolbox>
         Add(typeof(SFXManager));
         Add(typeof(GameController));
         Add(typeof(DrinksController));
+        Add(typeof(PsleController));
 
         //Get<SFXManager>().Init();
     }
