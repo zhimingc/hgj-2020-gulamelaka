@@ -8,5 +8,6 @@ public class Evaporated : Button
     {
         base.OnMouseUpAsButton();
         Toolbox.Instance.Get<DrinksController>().evaporated++;
+        Toolbox.Instance.Get<GameController>().Print("Added some evaporated milk to the stirring cup!");
     }
 }

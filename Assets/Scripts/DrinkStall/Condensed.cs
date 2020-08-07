@@ -8,5 +8,6 @@ public class Condensed : Button
     {
         base.OnMouseUpAsButton();
         Toolbox.Instance.Get<DrinksController>().condensed++;
+        Toolbox.Instance.Get<GameController>().Print("Added some condensed milk to the stirring cup!");
     }
 }

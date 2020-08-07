@@ -3359,7 +3359,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.2, y: -1.3}
-  m_SizeDelta: {x: 5.5, y: 7.1}
+  m_SizeDelta: {x: 6.74, y: 7.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1784351409
 MonoBehaviour:
@@ -3381,7 +3381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Teh-O
+  m_text: Kopi-C Kurang Manis Peng
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c220f5ca45b6452aa7549431941f1bb, type: 2}
   m_sharedMaterial: {fileID: -7723994514190219601, guid: 4c220f5ca45b6452aa7549431941f1bb,
@@ -3412,8 +3412,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25.56
+  m_fontSizeBase: 25.56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3456,12 +3456,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1784351409}
-    characterCount: 5
+    characterCount: 24
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 1
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

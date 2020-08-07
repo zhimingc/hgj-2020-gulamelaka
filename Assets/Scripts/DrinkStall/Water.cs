@@ -8,5 +8,6 @@ public class Water : Button
     {
         base.OnMouseUpAsButton();
         Toolbox.Instance.Get<DrinksController>().water++;
+        Toolbox.Instance.Get<GameController>().Print("Added some water to the stirring cup!");
     }
 }

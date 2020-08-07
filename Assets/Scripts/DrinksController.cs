@@ -23,7 +23,13 @@ public class DrinksController : MonoBehaviour
     
     private void Awake() {
         string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName.StartsWith("drink-stall")) Init();
+        if (sceneName.StartsWith("drink-stall"))
+        {
+            if (string.Equals(sceneName, "drink-stall")) wantedDrinkText = "Teh-O";
+            else if (string.Equals(sceneName, "drink-stall-1")) wantedDrinkText = "Kopi";
+            else if (string.Equals(sceneName, "drink-stall-2")) wantedDrinkText = "Kopi-C Kurang Manis Peng";
+            Init();
+        }
     }
 
     private void refreshDrink()
@@ -38,7 +44,7 @@ public class DrinksController : MonoBehaviour
     }
     void Init()
     {
-        wantedDrinkText = "Teh-O";
+        
         stirrer = GameObject.Find("Stirrer");
         preparedHotCup = GameObject.Find("Prepared Hot Cup");
         preparedHotCup.SetActive(false);
@@ -51,19 +57,19 @@ public class DrinksController : MonoBehaviour
         uncleEyes.SetActive(false);
         refreshDrink();
         preparedDrinkText = "";
-        Toolbox.Instance.Sfx.PlaySound("hawker_0", 0.1f);
+        Toolbox.Instance.Sfx.PlayLoop("hawker_0", 0.1f);
     }
 
     public void Stir()
     {
         if (water < 1)
         {
-            Toolbox.Instance.Get<GameController>().Print("Add some water!");
+            Toolbox.Instance.Get<GameController>().Print("Add some water first!");
             return;
         }
         else if (coffee < 1 && tea < 1)
         {
-            Toolbox.Instance.Get<GameController>().Print("Add some coffee or tea!");
+            Toolbox.Instance.Get<GameController>().Print("Add some coffee or tea first!");
             return;
         }
         else if (coffee >= 1 && tea >= 1) drinkText = drinkText + "Yuan Yang";
@@ -81,6 +87,7 @@ public class DrinksController : MonoBehaviour
 
         Toolbox.Instance.Get<GameController>().Print("Stirring: " + drinkText);
         preparedDrinkText = drinkText;
+        Toolbox.Instance.Get<GameController>().Print("Served Hot or Iced?");
         refreshDrink();
 
         var seq = LeanTween.sequence();
@@ -132,6 +139,8 @@ public class DrinksController : MonoBehaviour
             uncleNegative();
         }
         preparedDrinkText = "";
+
+        LeanTween.delayedCall(3.0f, ()=>{Toolbox.Instance.Gc.EndLevel();} );
     }
 
     public void unclePositive()
@@ -145,6 +154,8 @@ public class DrinksController : MonoBehaviour
         uncle.SetActive(false);
         uncleAngry.SetActive(true);
         uncleEyes.SetActive(true);
+
+        Toolbox.Instance.Sfx.PlaySound("uncle_scold_0", 0.5f);
 
         var seq = LeanTween.sequence();
         seq.append(LeanTween.moveLocalY(uncleAngry, 0.1f, 0.05f).setLoopPingPong(10));

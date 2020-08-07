@@ -29,4 +29,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 662150e0e50ae42dabdc13299d386318, type: 3}
   - name: lousy_humming_0
     clip: {fileID: 8300000, guid: 1556e6346a9a14bfeb7582e4f80a131a, type: 3}
+  - name: uncle_scold_0
+    clip: {fileID: 8300000, guid: 3ac12bdf148ba474d8357c2b2208c000, type: 3}
   sfxBatchData: []

@@ -30,6 +30,6 @@ public class meter : MonoBehaviour
 
     void PlayLousyHumming()
     {
-        Toolbox.Instance.Sfx.PlaySound("lousy_humming_0", 0.25f);
+        Toolbox.Instance.Sfx.PlayLoop("lousy_humming_0", 0.25f);
     }
 }
