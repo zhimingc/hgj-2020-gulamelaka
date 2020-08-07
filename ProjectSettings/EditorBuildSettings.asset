@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/load-screen.unity
     guid: 171906066736d0448ad621a5b7fda3a3
+  - enabled: 1
+    path: Assets/Scenes/start-copy.unity
+    guid: 893a7c79b287a5e4b84384577a9a8993
   m_configObjects: {}

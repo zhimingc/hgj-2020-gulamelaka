@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartButton()
     {
-        Toolbox.Instance.Gc.EndLevel();
+        Toolbox.Instance.Gc.EndLevel("start-copy");
     }
 
     public void OpenCreditsButton()

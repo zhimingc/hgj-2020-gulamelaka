@@ -91,6 +91,12 @@ public class GameController : MonoBehaviour
         });
     }
 
+    public void FirstLevel()
+    {
+        nextScene = 1;
+        EndLevel("load-screen");
+    }
+
     public void EndLevel()
     {
         nextScene = (SceneManager.GetActiveScene().buildIndex + 1);
