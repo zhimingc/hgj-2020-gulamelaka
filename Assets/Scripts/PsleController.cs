@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PsleController : MonoBehaviour
 {
     public GameObject anchor;
     private void Awake() {
-        Init();
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName.StartsWith("psle")) Init();
     }
     
     void Init()
     {
+
         anchor = GameObject.Find("Anchor");
 
         IntroAnimation();
