@@ -13,9 +13,11 @@ public class GameController : MonoBehaviour
     private Image fadeScreen;
     public int nextScene;
 
-    public string[] sceneNames = { "karang guni #1", "karang guni #2", "country eraser #1", "country eraser #2"};
+    public string[] sceneNames = { "karang guni #1", "karang guni #2", "country eraser #1", "country eraser #2", "psle"};
+    public int numScenes;
 
     private void Awake() {
+        numScenes = sceneNames.Length;
         Init();
         SceneManager.sceneLoaded += LevelLoaded;
     }
@@ -91,8 +93,16 @@ public class GameController : MonoBehaviour
 
     public void EndLevel()
     {
-        nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
-        EndLevel("load-screen");
+        nextScene = (SceneManager.GetActiveScene().buildIndex + 1);
+        if (nextScene >= numScenes + 1) 
+        {
+            EndLevel("main-menu");
+            nextScene = 0;
+        }
+        else 
+        {
+            EndLevel("load-screen");
+        }
     }
 
     public void EndLevel(string nextLevel)

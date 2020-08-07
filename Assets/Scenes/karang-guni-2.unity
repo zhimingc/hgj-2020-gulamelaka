@@ -714,6 +714,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.56078434
       objectReference: {fileID: 0}
+    - target: {fileID: 8775721532282679066, guid: 361f6df020f7aef438a76df13e33bcc0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2b0b8fefbc714142ad72e036fb283bc,
+        type: 3}
     - target: {fileID: 8775721532282679067, guid: 361f6df020f7aef438a76df13e33bcc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -969,6 +975,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: money (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8775721532282679066, guid: 361f6df020f7aef438a76df13e33bcc0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2b0b8fefbc714142ad72e036fb283bc,
+        type: 3}
     - target: {fileID: 8775721532282679067, guid: 361f6df020f7aef438a76df13e33bcc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1071,6 +1083,8 @@ MonoBehaviour:
   selectedEntity: {fileID: 0}
   hoveredEntity: []
   isNewState: 0
+  creditsButton: {fileID: 0}
+  creditsDisplay: {fileID: 0}
 --- !u!4 &1960501219
 Transform:
   m_ObjectHideFlags: 0

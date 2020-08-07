@@ -12,6 +12,8 @@ public class Submit : Button
 
     private PsleController psle;
 
+    private bool isMarked = false;
+
     private void Awake()
     {
         pc = FindObjectOfType<PlayerController>();
@@ -43,9 +45,15 @@ public class Submit : Button
 
     protected void OnMouseUpAsButton()
     {
+        if (isMarked) return;
+        
         Debug.Log("on mouse up");
         Toolbox.Instance.Get<PsleController>().Mark();
         
+        LeanTween.delayedCall(1.0f, ()=> {
+            Toolbox.Instance.Gc.EndLevel();
+        });
+
         base.OnMouseUpAsButton();
     }
 

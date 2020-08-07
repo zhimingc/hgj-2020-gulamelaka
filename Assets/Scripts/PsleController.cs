@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PsleController : MonoBehaviour
 {
     public GameObject anchor;
+    public int marks = 0;
+
     private void Awake() {
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName.StartsWith("psle")) Init();
@@ -43,7 +45,7 @@ public class PsleController : MonoBehaviour
 
     public void Mark()
     {
-        int marks = 0;
+        marks = 0;
         Transform answerBoxes = GameObject.Find("Answer Boxes").transform;
         int childCount = answerBoxes.childCount;
         var seq = LeanTween.sequence();
