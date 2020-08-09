@@ -64,7 +64,7 @@ public class DrinksController : MonoBehaviour
         uncleEyes.SetActive(false);
         refreshDrink();
         preparedDrinkText = "";
-        Toolbox.Instance.Sfx.PlayLoop("hawker_0", 0.1f);
+        Toolbox.Instance.Sfx.PlaySound("hawker_0", 0.1f);
     }
 
     public void Stir()

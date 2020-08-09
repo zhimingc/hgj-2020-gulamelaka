@@ -21,7 +21,7 @@ public class PsleController : MonoBehaviour
 
     void Init()
     {
-        Toolbox.Instance.Sfx.PlayLoop("classroom_0", 0.1f);
+        Toolbox.Instance.Sfx.PlaySound("classroom_0", 0.1f);
 
         anchor = GameObject.Find("Anchor");
 

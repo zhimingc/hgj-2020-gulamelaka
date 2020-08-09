@@ -40,28 +40,27 @@ public class Toolbox : Singleton<Toolbox>
     private void Update()
     {
         //DEBUG
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            int nextScene = SceneManager.GetActiveScene().buildIndex - 1;
-            if (nextScene < 0)
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                nextScene = SceneManager.sceneCountInBuildSettings - 1;
+                int nextScene = SceneManager.GetActiveScene().buildIndex - 1;
+                if (nextScene < 0)
+                {
+                    nextScene = SceneManager.sceneCountInBuildSettings - 1;
+                }
+                SceneManager.LoadScene(nextScene);
             }
-            SceneManager.LoadScene(nextScene);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            //int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings);
-            //SceneManager.LoadScene(nextScene);
-            Gc.EndLevel();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                //int nextScene = (SceneManager.GetActiveScene().buildIndex + 1) % (SceneManager.sceneCountInBuildSettings);
+                //SceneManager.LoadScene(nextScene);
+                Gc.EndLevel();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }            
         }
     }
 
